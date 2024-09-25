@@ -181,4 +181,4 @@ if uploaded_files:
     st.write("### Gráfico de Casos Pendentes")
     st.image('casos_pendentes.png')
 
-    st.write("### Gráfico de Média Diária Ac
+    st.write("### Gráfico de Média Diária Ac")
