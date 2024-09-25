@@ -11,7 +11,7 @@ def relatorio_diario():
   #BIBLIOTECAS
   import pandas as pd
   import warnings
-  !pip install fpdf
+  #!pip install fpdf
   from fpdf import FPDF
   from matplotlib.dates import DateFormatter
   warnings.filterwarnings("ignore")
