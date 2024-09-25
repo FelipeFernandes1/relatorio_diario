@@ -1,0 +1,5 @@
+streamlit==1.4.0
+pandas
+matplotlib
+fpdf
+openpyxl  # Para ler arquivos .xlsx
