@@ -18,10 +18,11 @@ def relatorio_diario():
   from google.colab import files
   import matplotlib.pyplot as plt
   import numpy as np
-
+  from IPython.core.display import HTML
+  
   #FUNÇAO PARA VERIFICAR O ARQUIVO CARREGADO
   def verificar_upload(base_nome):
-    print(f"Faça o upload da base {base_nome}")
+    print(f"<h1 style='color:yellow;'>Faça o upload da base {base_nome}</h1>")
     uploaded_files = files.upload()  # Retorna um dicionário
     if not uploaded_files:
         return None  # Retorna None para indicar que nenhum upload foi feito
