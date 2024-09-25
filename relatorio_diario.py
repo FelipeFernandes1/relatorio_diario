@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 from fpdf import FPDF
 from matplotlib.dates import DateFormatter
+from itertools import cycle  # Importando cycle
 
 # Funções necessárias (copie e cole as funções do seu código aqui)
 def get_last_date(df, status, status_hugme, pagina):
@@ -166,8 +167,11 @@ if uploaded_files:
     df_geral = pd.concat(dfs, axis=0)
     df_geral.reset_index(drop=True, inplace=True)
     df_geral['Data Reclamação'] = pd.to_datetime(df_geral['Data Reclamação'])
-    df_geral['Página'] = ['Pay', 'Classificados', 'Zap', 'Viva'] * (len(df_geral) // 4 + 1)
-    df_geral = df_geral.head(len(df_geral))
+    
+    # Ajustando a atribuição da coluna 'Página'
+    num_rows = len(df_geral)
+    pages = list(cycle(['Pay', 'Classificados', 'Zap', 'Viva']))[:num_rows]
+    df_geral['Página'] = pages
 
     # Tratamento da coluna "atribuído para"
     df_geral['Status'] = df_geral['Atribuido Para'].fillna('Sem atribuição').replace({'Sem atribuição': 'Sem atribuição', 'Atribuído': 'Atribuído'})
@@ -181,4 +185,5 @@ if uploaded_files:
     st.write("### Gráfico de Casos Pendentes")
     st.image('casos_pendentes.png')
 
-    st.write("### Gráfico de Média Diária Ac")
+    st.write("### Gráfico de Média Diária Acumulada")
+    st.image('media_diaria_acumulada.png')
