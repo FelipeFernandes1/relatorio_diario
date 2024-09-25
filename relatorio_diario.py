@@ -28,12 +28,12 @@ def relatorio_diario():
     file_name = next(iter(uploaded_files))  # Obtém o nome do primeiro arquivo carregado
     df = pd.read_excel(file_name, header = 3)  # Carrega o arquivo em um DataFrame (ajuste para pd.read_excel se for um Excel)
     if len(df) == 10000:  # Se a base for igual a 10000, é um indício de que haverá casos faltando
-        print("\033[91mATENÇÃO, o tamanho da base é 10000 (limite Hugme)!\033[0m")
+        print("ATENÇÃO, o tamanho da base é 10000 (limite Hugme)!")
     print("")
     colunas = ['Id HugMe', 'Data Reclamação', 'Status Hugme', 'Atribuido Para', 'Moderação status', 'Moderação motivo']
     # Verificando se todas as colunas necessárias estão presentes
     if not all(col in df.columns for col in colunas):
-        print("Faltam algumas colunas necessárias. A função será encerrada.")
+        print("Faltam algumas colunas necessárias, extraia um novo arquivo. A função será encerrada.")
         return None  # Retorna None ou poderia usar um erro aqui se preferir
     return df
 
