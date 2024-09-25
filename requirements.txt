@@ -1,5 +1,6 @@
 streamlit==1.4.0
-pandas
-matplotlib
-fpdf
-openpyxl  # Para ler arquivos .xlsx
+pandas==2.2.3
+matplotlib==3.9.2
+fpdf==1.7.2
+openpyxl==3.1.5
+setuptools==67.0.0
